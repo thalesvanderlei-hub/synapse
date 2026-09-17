@@ -48,14 +48,14 @@ const u = (id: string, w = 800, h = 600) =>
   `https://images.unsplash.com/photo-${id}?w=${w}&h=${h}&fit=crop&auto=format&q=80`;
 
 const IMG = {
-  consulta: u("1576091160399-112ba8d25d1d"),
+  consulta: u("1714976694012-09d1d331f433"),
   motricidade: u("1476703993599-0035a21b17a9"),
   voz: u("1516280440614-37939bbacd81"),
   linguagem: u("1503919545889-aef636e10ad4"),
   disfagia: u("1490645935967-10de6ba17061"),
   audiologia: u("1588776814546-1ffcf47267a5"),
   vestibular: u("1544027993-37dbfe43562a"),
-  taac: u("1516627145497-ae6968895b74"),
+  taac: u("1594434533760-02e0f3faaa68"),
   otorrino: u("1584982751601-97dcc096659c", 1000, 760),
 };
 

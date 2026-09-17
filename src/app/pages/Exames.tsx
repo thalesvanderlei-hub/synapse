@@ -36,24 +36,25 @@ const u = (id: string, w = 800, h = 1000) =>
 
 // Fotografia provisória — PENDÊNCIA: substituir pelo acervo real da clínica.
 const IMG = {
-  fones: u("1516627145497-ae6968895b74"),
-  microfoneEstudio: u("1478737270239-2f02b77fc618"),
-  crianca: u("1503454537195-1dcabb73ffb9"),
-  orelha: u("1588776814546-1ffcf47267a5"),
-  salaClinica: u("1629909613654-28e377c37b09"),
-  interiorClinica: u("1519494026892-80bbd2d6fd0d"),
-  blocos: u("1484820540004-14229fe36ca4"),
-  medico: u("1576091160399-112ba8d25d1d"),
-  estetoscopio: u("1584982751601-97dcc096659c"),
-  livros: u("1503676260728-1c00da094a0b"),
-  estudo: u("1522202176988-66273c2fd55f"),
-  profissional: u("1512290923902-8a9f81dc236c"),
-  maos: u("1544027993-37dbfe43562a"),
-  idosa: u("1581579438747-1dc8d17bbce4"),
-  maeFilhos: u("1476703993599-0035a21b17a9"),
-  criancaAoAr: u("1503919545889-aef636e10ad4"),
-  microfone: u("1516280440614-37939bbacd81"),
-  cta: u("1629909613654-28e377c37b09", 1400, 900),
+  fones: u("1781652458706-9576a77fa01a"),        // Audiometria — fono + teste auditivo
+  microfoneEstudio: u("1478737270239-2f02b77fc618"), // Altas Frequências
+  crianca: u("1503454537195-1dcabb73ffb9"),       // Imitanciometria (bebê)
+  orelha: u("1602703651892-7f0e73a14302"),        // Emissões Otoacústicas — orelha
+  salaClinica: u("1715866170788-cbde4a47a742"),   // BERA/PEATE — sessão eletrofisiológica
+  interiorClinica: u("1519494026892-80bbd2d6fd0d"), // PEAEE/ASSR
+  blocos: u("1484820540004-14229fe36ca4"),        // Processamento Auditivo Central
+  medico: u("1632568851266-b8e23c1738f5"),        // Acufenometria — orelha
+  estetoscopio: u("1716833322865-56bae681995c"),  // Eletrococleografia — nervo/cóclea
+  livros: u("1503676260728-1c00da094a0b"),        // P300
+  estudo: u("1719650592946-55163c4994cb"),        // MMN — neurônios / detecção de mudança
+  profissional: u("1512290923902-8a9f81dc236c"),  // Média Latência
+  maos: u("1483519173755-be893fab1f46"),          // Vectoeletronistagmografia — olho (macro)
+  idosa: u("1581579438747-1dc8d17bbce4"),         // Posturografia
+  maeFilhos: u("1634656883281-3a665dd2bb8a"),     // VEMP — orelha/vestibular
+  criancaAoAr: u("1617339860632-f53c5b5dce4d"),   // vHIT — olho (reflexo)
+  microfone: u("1511671782779-c97d3d27a1d4"),     // Análise Acústica da Voz — microfone
+  laringoscopia: u("1485579149621-3123dd979885"), // Videolaringoscopia — voz/laringe
+  cta: u("1625786682948-2168238883d2", 1400, 900), // Chamada final
 };
 
 // ─── Dados (texto 100% literal do copy institucional) ────────────────────────
@@ -221,7 +222,7 @@ const VOZ: ExameItem[] = [
     Icon: Video,
     anim: "ltr",
     tag: "Voz",
-    image: IMG.salaClinica,
+    image: IMG.laringoscopia,
     title: "Videonasolaringoscopia/Videolaringoscopia",
     desc: "Permite visualizar a laringe e as pregas vocais durante a respiração e a produção da voz. Auxilia na identificação de alterações estruturais, lesões, inflamações e dificuldades de movimentação ou fechamento das pregas vocais.",
   },

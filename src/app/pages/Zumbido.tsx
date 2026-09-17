@@ -37,13 +37,13 @@ const u = (id: string, w = 800, h = 1000) =>
 
 // Fotografia provisória — PENDÊNCIA: substituir pelo acervo real da clínica.
 const IMG = {
-  habituacao: u("1506126613408-eca07ce68773"),
-  sonora: u("1516627145497-ae6968895b74"),
-  aconselhamento: u("1576091160399-112ba8d25d1d"),
-  neurocognitivo: u("1522202176988-66273c2fd55f"),
-  fotobiomodulacao: u("1629909613654-28e377c37b09"),
-  mindfulness: u("1544027993-37dbfe43562a"),
-  oque: u("1588776814546-1ffcf47267a5", 900, 900),
+  habituacao: u("1506126613408-eca07ce68773"),        // meditação / calma
+  sonora: u("1516627145497-ae6968895b74"),            // fones — terapia sonora
+  aconselhamento: u("1758273240373-370993d0275d"),    // terapeuta ouvindo (aconselhamento)
+  neurocognitivo: u("1587323655395-b1c77a12c89a"),    // treino / atenção
+  fotobiomodulacao: u("1754941622117-97957c5d669b"),  // luz vermelha (dispositivo)
+  mindfulness: u("1559595500-e15296bdbb48"),          // meditação (mindfulness)
+  oque: u("1757041036433-e26807bda7be", 900, 900),    // mão em concha na orelha (percepção do som)
   individualizado: u("1573497491208-6b1acb260507", 900, 1000),
 };
 
