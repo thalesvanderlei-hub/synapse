@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Synapse — Style Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --azul-marinho:#02173B;
+    --azul-profundo:#02102A;
+    --azul-primario:#52D4FF;
+    --azul-secundario:#42ADD0;
+    --branco-gelo:#EEFBFF;
+    --branco:#FFFFFF;
+    --canvas:#F4F5F7;
+    --line:#DCDFE4;
+    --text-doc:#22262E;
+    --text-doc-muted:#6B7280;
+    --font-sans:'DM Sans', sans-serif;
+    --font-mono:'DM Mono', monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:var(--font-sans);
+    background:var(--canvas);
+    color:var(--text-doc);
+    -webkit-font-smoothing:antialiased;
+    padding:48px 0 96px;
+  }
+  .doc{max-width:1040px; margin:0 auto; padding:0 32px;}
+
+  header.docHead{display:flex; justify-content:space-between; align-items:baseline; padding-bottom:20px; border-bottom:1px solid var(--line); margin-bottom:56px;}
+  header.docHead .brand{font-weight:700; font-size:15px; letter-spacing:.02em;}
+  header.docHead .meta{font-family:var(--font-mono); font-size:12px; color:var(--text-doc-muted);}
+
+  .sec{margin-bottom:72px;}
+  .sec-head{display:flex; align-items:baseline; gap:14px; margin-bottom:24px;}
+  .sec-num{font-family:var(--font-mono); font-size:13px; color:var(--text-doc-muted); width:24px;}
+  .sec-title{font-size:20px; font-weight:700;}
+  .sec-note{font-size:13.5px; color:var(--text-doc-muted); margin:-8px 0 24px 38px; max-width:560px; line-height:1.5;}
+
+  /* 01 color grid — mirrors the reference sheet format */
+  .color-grid{display:grid; grid-template-columns:repeat(3,1fr); border:1px solid var(--line); border-radius:4px; overflow:hidden;}
+  .swatch{height:220px; padding:20px; display:flex; flex-direction:column; justify-content:space-between;}
+  .swatch .name{font-weight:700; font-size:15px;}
+  .swatch .usage{font-size:12px; opacity:.75; text-align:right;}
+  .swatch .top-row{display:flex; justify-content:space-between; align-items:flex-start;}
+  .swatch .hex{font-family:var(--font-mono); font-size:13px; font-weight:500;}
+  .on-dark{color:var(--branco);}
+  .on-light{color:var(--azul-marinho);}
+
+  /* 02 contrast table */
+  table.spec{width:100%; border-collapse:collapse; font-size:13.5px;}
+  table.spec th{text-align:left; font-weight:500; color:var(--text-doc-muted); font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; padding:0 12px 10px; border-bottom:1px solid var(--line);}
+  table.spec td{padding:12px; border-bottom:1px solid var(--line); vertical-align:middle;}
+  table.spec tr:last-child td{border-bottom:none;}
+  .tag{display:inline-block; font-size:11.5px; font-weight:500; padding:3px 9px; border-radius:4px;}
+  .tag-pass{background:#E4F3E8; color:#1E6B3A;}
+  .tag-fail{background:#FBE7E7; color:#A32D2D;}
+  .swab{display:inline-block; width:12px; height:12px; border-radius:3px; margin-right:6px; vertical-align:-1px; border:1px solid rgba(0,0,0,.08);}
+
+  /* 03 typography */
+  .type-block{border:1px solid var(--line); border-radius:4px; background:var(--branco); padding:32px; margin-bottom:16px;}
+  .type-alpha{font-size:15px; color:var(--text-doc-muted); word-break:break-word; line-height:1.6;}
+  .weights{display:flex; gap:32px; margin-top:20px;}
+  .weight-sample{}
+  .weight-sample .big{font-size:30px;}
+  .weight-sample .lbl{font-family:var(--font-mono); font-size:11.5px; color:var(--text-doc-muted); margin-top:6px;}
+
+  .scale-row{display:flex; align-items:baseline; gap:24px; padding:16px 0; border-bottom:1px solid var(--line);}
+  .scale-row:last-child{border-bottom:none;}
+  .scale-meta{width:190px; flex-shrink:0; font-family:var(--font-mono); font-size:11.5px; color:var(--text-doc-muted); line-height:1.6;}
+  .scale-sample{font-weight:700;}
+
+  /* 04 spacing */
+  .space-row{display:flex; align-items:center; gap:16px; padding:10px 0;}
+  .space-bar{background:var(--azul-secundario); height:14px; border-radius:2px;}
+  .space-label{font-family:var(--font-mono); font-size:12px; color:var(--text-doc-muted); width:60px;}
+
+  /* 05 radius */
+  .radius-row{display:flex; gap:28px; flex-wrap:wrap;}
+  .radius-item{text-align:center;}
+  .radius-box{width:88px; height:88px; background:var(--azul-marinho); margin-bottom:10px;}
+  .radius-item span{font-family:var(--font-mono); font-size:11.5px; color:var(--text-doc-muted);}
+
+  /* 06 components */
+  .comp-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:16px;}
+  .comp-cell{background:var(--branco); border:1px solid var(--line); border-radius:4px; padding:28px 20px; display:flex; flex-direction:column; align-items:flex-start; justify-content:center; gap:14px; min-height:120px;}
+  .comp-cell .lbl{font-family:var(--font-mono); font-size:11px; color:var(--text-doc-muted); order:2;}
+  .btn{font-family:var(--font-sans); font-weight:500; font-size:14px; padding:11px 22px; border-radius:999px; border:1.5px solid transparent; cursor:default;}
+  .btn-primary{background:var(--azul-primario); color:var(--azul-marinho);}
+  .btn-secondary{background:transparent; border-color:var(--azul-marinho); color:var(--azul-marinho);}
+  .badge{font-size:11.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--azul-marinho); display:flex; align-items:center; gap:6px;}
+  .badge::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--azul-primario); border:1px solid var(--azul-marinho);}
+  .field{width:100%; border:1.5px solid var(--line); border-radius:6px; padding:10px 14px; font-family:var(--font-sans); font-size:13.5px; color:var(--text-doc-muted); background:var(--branco);}
+  .mini-card{width:100%; border-radius:8px; background:var(--branco-gelo); border:1px solid var(--line); padding:14px 16px;}
+  .mini-card .t{font-weight:700; font-size:13.5px; color:var(--azul-marinho);}
+  .mini-card .d{font-size:12px; color:var(--text-doc-muted); margin-top:4px;}
+
+  /* 07 motion spec */
+  table.spec td.mono{font-family:var(--font-mono); font-size:12.5px;}
+
+  footer{border-top:1px solid var(--line); padding-top:20px; font-size:12px; color:var(--text-doc-muted);}
+
+  @media (max-width:720px){
+    .color-grid{grid-template-columns:1fr;}
+    .scale-row{flex-direction:column; gap:6px; align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+<div class="doc">
+
+  <header class="docHead">
+    <div class="brand">Synapse — Reabilitação Neurofuncional</div>
+    <div class="meta">Style Guide · v0.2 · corrigido</div>
+  </header>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">01</span><span class="sec-title">Paleta de cores</span></div>
+    <div class="color-grid">
+      <div class="swatch on-light" style="background:var(--azul-primario);">
+        <div class="top-row"><span class="name">Azul Primário</span><span class="usage">P/fundo escuro</span></div>
+        <span class="hex">#52D4FF</span>
+      </div>
+      <div class="swatch on-dark" style="background:var(--azul-marinho);">
+        <div class="top-row"><span class="name">Azul Marinho</span><span class="usage">P/textos e detalhes</span></div>
+        <span class="hex">#02173B</span>
+      </div>
+      <div class="swatch on-light" style="background:var(--branco-gelo);">
+        <div class="top-row"><span class="name">Branco Gelo</span><span class="usage">P/textos e detalhes</span></div>
+        <span class="hex">#EEFBFF</span>
+      </div>
+      <div class="swatch on-dark" style="background:var(--azul-secundario);">
+        <div class="top-row"><span class="name">Azul Secundário</span><span class="usage">P/fundo claro</span></div>
+        <span class="hex">#42ADD0</span>
+      </div>
+      <div class="swatch on-dark" style="background:var(--azul-profundo);">
+        <div class="top-row"><span class="name">Azul Profundo</span><span class="usage">P/apoio</span></div>
+        <span class="hex">#02102A</span>
+      </div>
+      <div class="swatch on-light" style="background:var(--branco); border-left:1px solid var(--line);">
+        <div class="top-row"><span class="name">Branco</span><span class="usage">P/textos e detalhes</span></div>
+        <span class="hex">#FFFFFF</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">02</span><span class="sec-title">Contraste</span></div>
+    <div class="sec-note">Luminância relativa (WCAG), não estimativa. Mínimo aceitável para texto: 4.5:1.</div>
+    <table class="spec">
+      <tr><th>Combinação</th><th>Razão</th><th>Resultado</th></tr>
+      <tr><td><span class="swab" style="background:#02173B"></span>Azul Marinho sobre <span class="swab" style="background:#EEFBFF"></span>Branco Gelo</td><td class="mono">16.7:1</td><td><span class="tag tag-pass">Aprovado</span></td></tr>
+      <tr><td><span class="swab" style="background:#FFFFFF"></span>Branco sobre <span class="swab" style="background:#02102A"></span>Azul Profundo</td><td class="mono">18.9:1</td><td><span class="tag tag-pass">Aprovado</span></td></tr>
+      <tr><td><span class="swab" style="background:#52D4FF"></span>Azul Primário sobre <span class="swab" style="background:#02102A"></span>Azul Profundo</td><td class="mono">11.0:1</td><td><span class="tag tag-pass">Aprovado</span></td></tr>
+      <tr><td><span class="swab" style="background:#02173B"></span>Azul Marinho sobre <span class="swab" style="background:#52D4FF"></span>Azul Primário</td><td class="mono">10.3:1</td><td><span class="tag tag-pass">Aprovado</span></td></tr>
+      <tr><td><span class="swab" style="background:#02173B"></span>Azul Marinho sobre <span class="swab" style="background:#42ADD0"></span>Azul Secundário</td><td class="mono">6.8:1</td><td><span class="tag tag-pass">Aprovado</span></td></tr>
+      <tr><td><span class="swab" style="background:#52D4FF"></span>Azul Primário sobre <span class="swab" style="background:#EEFBFF"></span>Branco Gelo</td><td class="mono">1.6:1</td><td><span class="tag tag-fail">Reprovado</span></td></tr>
+      <tr><td><span class="swab" style="background:#42ADD0"></span>Azul Secundário sobre <span class="swab" style="background:#FFFFFF"></span>Branco (como texto)</td><td class="mono">2.6:1</td><td><span class="tag tag-fail">Reprovado</span></td></tr>
+    </table>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">03</span><span class="sec-title">Tipografia — DM Sans</span></div>
+    <div class="sec-note">Fonte de sistema, neutra, uma família só variando peso. Alternativa direta: Manrope.</div>
+    <div class="type-block">
+      <div class="type-alpha">AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvXxZz 0123456789</div>
+      <div class="weights">
+        <div class="weight-sample"><div class="big" style="font-weight:400;">Aa</div><div class="lbl">Regular · 400</div></div>
+        <div class="weight-sample"><div class="big" style="font-weight:500;">Aa</div><div class="lbl">Medium · 500</div></div>
+        <div class="weight-sample"><div class="big" style="font-weight:700;">Aa</div><div class="lbl">Bold · 700</div></div>
+      </div>
+    </div>
+    <div class="type-block">
+      <div class="scale-row">
+        <div class="scale-meta">H1 · 48–64px<br>Bold · lh 1.1</div>
+        <div class="scale-sample" style="font-size:44px;">Cuidar da audição</div>
+      </div>
+      <div class="scale-row">
+        <div class="scale-meta">H2 · 32–40px<br>Bold · lh 1.15</div>
+        <div class="scale-sample" style="font-size:30px;">Ciência e cuidado humano</div>
+      </div>
+      <div class="scale-row">
+        <div class="scale-meta">H3 · 22–26px<br>Medium · lh 1.25</div>
+        <div class="scale-sample" style="font-size:22px; font-weight:500;">Áreas de atuação</div>
+      </div>
+      <div class="scale-row">
+        <div class="scale-meta">Corpo · 18px<br>Regular · lh 1.6</div>
+        <div class="scale-sample" style="font-size:18px; font-weight:400; max-width:420px;">Cada atendimento é conduzido de forma individual, unindo tecnologia e evidência científica.</div>
+      </div>
+      <div class="scale-row">
+        <div class="scale-meta">Eyebrow · 13px<br>Medium · uppercase</div>
+        <div class="scale-sample" style="font-size:13px; font-weight:500; letter-spacing:.08em; text-transform:uppercase;">Serviços</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">04</span><span class="sec-title">Espaçamento</span></div>
+    <div class="sec-note">Base 8px.</div>
+    <div>
+      <div class="space-row"><span class="space-label">8</span><div class="space-bar" style="width:8px;"></div></div>
+      <div class="space-row"><span class="space-label">16</span><div class="space-bar" style="width:16px;"></div></div>
+      <div class="space-row"><span class="space-label">24</span><div class="space-bar" style="width:24px;"></div></div>
+      <div class="space-row"><span class="space-label">32</span><div class="space-bar" style="width:32px;"></div></div>
+      <div class="space-row"><span class="space-label">48</span><div class="space-bar" style="width:48px;"></div></div>
+      <div class="space-row"><span class="space-label">64</span><div class="space-bar" style="width:64px;"></div></div>
+      <div class="space-row"><span class="space-label">96</span><div class="space-bar" style="width:96px;"></div></div>
+      <div class="space-row"><span class="space-label">128</span><div class="space-bar" style="width:128px;"></div></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">05</span><span class="sec-title">Raio de borda</span></div>
+    <div class="radius-row">
+      <div class="radius-item"><div class="radius-box" style="border-radius:0px;"></div><span>0px</span></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:8px;"></div><span>8px</span></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:16px;"></div><span>16px</span></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:44px;"></div><span>full (pílula)</span></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">06</span><span class="sec-title">Componentes</span></div>
+    <div class="comp-grid">
+      <div class="comp-cell"><button class="btn btn-primary">Agende agora</button><span class="lbl">Botão · primário</span></div>
+      <div class="comp-cell"><button class="btn btn-secondary">Ver serviços</button><span class="lbl">Botão · secundário</span></div>
+      <div class="comp-cell"><span class="badge">Serviços</span><span class="lbl">Eyebrow / rótulo</span></div>
+      <div class="comp-cell"><input class="field" placeholder="seu@email.com" disabled><span class="lbl">Campo de formulário</span></div>
+      <div class="comp-cell"><div class="mini-card"><div class="t">Audiologia</div><div class="d">Avaliação e tratamento auditivo</div></div><span class="lbl">Card</span></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">07</span><span class="sec-title">Movimento</span></div>
+    <table class="spec">
+      <tr><th>Uso</th><th>Duração</th><th>Easing</th></tr>
+      <tr><td>Entrada de elemento (fade + deslocamento)</td><td class="mono">250–400ms</td><td class="mono">ease-out</td></tr>
+      <tr><td>Hover / microinteração</td><td class="mono">150–200ms</td><td class="mono">ease</td></tr>
+      <tr><td>Carrossel de depoimentos</td><td class="mono">contínuo, lento</td><td class="mono">linear</td></tr>
+    </table>
+    <div class="sec-note" style="margin-top:16px;">Baseline, não lista fechada — novas transições, efeitos de texto ou microinterações podem entrar durante o desenvolvimento. As únicas regras fixas: sempre respeitar <span style="font-family:var(--font-mono);">prefers-reduced-motion</span> e evitar parallax pesado/scroll-jacking.</div>
+  </div>
+
+  <footer>Documento vivo — valores ajustáveis conforme o desenvolvimento avança.</footer>
+
+</div>
+</body>
+</html>

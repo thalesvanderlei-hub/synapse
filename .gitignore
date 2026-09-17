@@ -1,0 +1,22 @@
+# Dependências
+node_modules/
+
+# Build / saída
+dist/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+
+# Ambiente / segredos
+.env*
+
+# Config local do Claude Code (mantém rules/ e launch.json no repo)
+.claude/settings.local.json
+
+# Projeto antigo em Next.js (arquivado localmente, não vai pro repo)
+_archive/
+
+# SO / editor
+.DS_Store
+Thumbs.db
