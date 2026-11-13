@@ -106,13 +106,6 @@ const EQUIPE: Membro[] = [
     ],
   },
   {
-    initials: "MC",
-    name: "Moses Caetano",
-    tag: "Fonoaudiologia",
-    desc: "Fonoaudiólogo formado pela Universidade Estadual de Ciências da Saúde de Alagoas (UNCISAL), com residência multiprofissional em Fonoaudiologia Hospitalar e Disfagia pelo Hospital das Clínicas da Faculdade de Medicina da Universidade de São Paulo (HCFMUSP). Ampla experiência com pacientes de alta complexidade, traqueostomizados, disfágicos, com alterações respiratórias, distúrbios laríngeos e avaliação gerontológica global.",
-    bullets: [],
-  },
-  {
     initials: "KL",
     name: "Kryssia Layane",
     tag: "Fonoaudiologia",
